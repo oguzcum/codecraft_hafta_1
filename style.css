@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(10, 10, 10, 0.781);
+}
+
+.navbar {
+    background-color: #103f46;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: whitesmoke;
+    padding: 10px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: whitesmoke;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000; 
+}
+
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block; 
+    }
+    .navbar{
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        background-color: #17a2b8;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999; 
+    }
+
+    .nav-links a {
+        margin: 10px 0; 
+    }
+
+
+    #menuToggle:checked ~ .nav-links {
+        display: flex;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 90%;
+    
+    margin: 100px auto;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 10px 10px 15px 20px rgba(9, 255, 21, 0.1);
+}
+
+.content a {
+    text-decoration: none;
+    color: black;
+}
+
+.wrapper nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 110px;
+    text-align: left;
+    margin-right: 20px; 
+    position: relative; 
+}
+
+.wrapper nav label {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    line-height: 45px;
+    cursor: pointer;
+    z-index: 2;
+    color: #1eac48;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.wrapper nav label:hover {
+    background-color: rgba(13, 223, 255, 0.3);
+}
+
+#series:checked ~ nav label.series,
+#char:checked ~ nav label.char,
+#fav:checked ~ nav label.fav {
+    color: #fff;
+}
+
+.slider {
+    position: absolute;
+    width: 100%;
+    height: 33.33%;
+    top: 0;
+    left: 0;
+    background-color: #17a2b8;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    z-index: 1; 
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+#series:checked ~ nav .slider {
+    top: 0%;
+}
+
+#char:checked ~ nav .slider {
+    top: 33.33%;
+}
+
+#fav:checked ~ nav .slider {
+    top: 66.66%;
+}
+
+section .content {
+    display: none;
+    background-color: #fff;
+}
+
+#series:checked ~ section .content-1,
+#char:checked ~ section .content-2,
+#fav:checked ~ section .content-3 {
+    display: block;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.content .title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.content .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.content img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin-right: 0;
+}
+
+.content .text {
+    flex: 1;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-indent: 20px;
+    letter-spacing: 1px;
+}
+
+.content-2 {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center; /* Kartları dikeyde ortalar */
+    width: 100%; /* Container'ın genişliğini tam olarak kullan */
+}
+
+.card {
+    background-color: #e7fada;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%; /* Kartın genişliği container'a uyumlu olsun */
+    max-width: 300px; /* Kartların maksimum genişliği */
+    text-align: center;
+    margin: 0 auto; /* Kartları yatayda ortalar */
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-text {
+    padding: 20px;
+}
+
+.card-text h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card-text p {
+    font-size: 16px;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column; 
+        width: 90%;
+        margin: 50px auto;
+        padding: 15px;
+    }
+
+    .wrapper nav {
+        width: 100%; 
+        margin-right: 0; 
+    }
+
+    .content .title {
+        font-size: 30px;
+    }
+
+    .content .text {
+        font-size: 16px;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .content img {
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    
+}
+@media (min-width: 768px) {
+    .card-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center; /* Kartları yatayda ortalar */
+    }
+
+    .card {
+        flex: 1 1 calc(33.33% - 40px); /* 3 kart yan yana, boşluklar dahil */
+        max-width: calc(33.33% - 40px); /* Maksimum genişlik */
+    }
+}
+
+
+.footer {
+    background-color: #103f46;
+    color: whitesmoke;
+    padding: 15px 0;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    border-top: 2px solid #727272;
+}
+
+
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.footer-content a {
+    color: #e7a3a3;
+    text-decoration: none;
+}
+
+
+
